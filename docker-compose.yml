@@ -1,0 +1,20 @@
+version: "3.2"
+services:
+  app:
+    # image: inst_project
+    build:
+      dockerfile: Dockerfile
+      context: .
+    depends_on:
+      - postgres
+    restart: always
+    ports:
+      - "3000:3000"
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: who
+      POSTGRES_PASSWORD: 27778336
+      POSTGRES_DB: final
